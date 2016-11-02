@@ -142,11 +142,19 @@ p{
 #cloud {
 	width:100%;
 	margin-top:25px;
-	background: url(../photos/cloud2.svg);
+	/*background: url(../photos/cloud2.svg);
 	background-size:100%;
-	background-repeat:none;
+	background-repeat:none;*/
 	position:relative;
-	padding-top:500px;
+	padding-top:0px;
+}
+
+#cloudbuffer{
+	
+}
+
+#cloudbuffer img{
+	width:100%;
 }
 
 #HWLogo {
