@@ -31,6 +31,10 @@ function setCss(){
 		}
 		
 		$('#background, #backgroundOverlay').css("margin-left", "-" + ($('#background').width() / 2).toString() + "px");
+		
+		$('#cloud').css("padding-top", 110 / (window.innerHeight / window.innerWidth) + "px");
+		$('#HWContent').css("padding-top", 190 * (window.innerHeight / window.innerWidth) + "px");
+		$('#HWContent').css("margin-top", (190 * (window.innerHeight / window.innerWidth) * -1) + "px");
 	},10);
 }
 
