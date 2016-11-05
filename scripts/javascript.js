@@ -1,4 +1,5 @@
 var currentPage = "home";   // Global variable declared for the nav function to keep track of current page
+var lastPage = "home";
 
 $(document).ready(function(){
 
@@ -33,7 +34,7 @@ function setCss(){
 		$('#background, #backgroundOverlay').css("margin-left", "-" + ($('#background').width() / 2).toString() + "px");
 		
 		$('#HWContent').css("margin-top", ($('#cloudbuffer').height()/1.5 * -1) + "px");
-	},10);
+	},1);
 }
 
 // Removes the loading screen when the website has loaded
@@ -64,7 +65,7 @@ function changePage(page) {
 		}
 	
 		// scrolls the user to the top of the page before changing to the next one
-		$("html, body").animate({ scrollTop: 0 }, scrollSpeed, function() {
+		$("body").animate({ scrollTop: 0 }, scrollSpeed, function() {
 		
 			/* animates pages in/out and sets the needed properties
 			
@@ -82,8 +83,12 @@ function changePage(page) {
 			$('#' + currentPage).css({"position": "fixed", "z-index": "0"});
 			$('#' + page).removeClass("animated fadeOut");
 			$('#' + page).addClass("animated fadeIn");
-			$('#' + page).css({"position": "absolute", "z-index": "3"});
-		
+			$('#' + page).css({"position": "absolute", "z-index": "3", "top":"0px"});
+			
+			$('#' + currentPage).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+				$('#' + lastPage).css("top", window.innerHeight + "px");
+			});
+			
 			// determines if the background needs to be changed depending on the page the user is going to
 			if (page === "home"){
 				$('#background').css({
@@ -102,6 +107,7 @@ function changePage(page) {
 			}
 			
 			// sets the global variable to the page that the website just switched to.
+			lastPage = currentPage;
 			currentPage = page;
 		});
 	}
