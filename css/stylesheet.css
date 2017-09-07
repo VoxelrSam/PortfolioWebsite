@@ -103,6 +103,13 @@ p{
 	text-align:left;
 }
 
+.banner {
+	max-width:1000px;
+	min-width:800px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 /* ID's */
 
 #load{
@@ -195,13 +202,6 @@ p{
 #HWContent{
 	background:#52bfa8;
 	padding-bottom:50px;
-}
-
-#hwteam {
-	max-width:1000px;
-	min-width:800px;
-	margin-top:10px;
-	margin-bottom:10px;
 }
 
 #HWContent a{
